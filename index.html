@@ -9,7 +9,16 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤝</text></svg>">
 <title>신현식 기업지원 — 기업의 성장을 함께 설계합니다</title>
+<link rel="preload" href="fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* 셀프호스팅 가변 폰트 — 어떤 OS에서도 동일한 타이포 (실패 시 시스템 폰트 폴백) */
+  @font-face {
+    font-family: 'Pretendard Variable';
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+    src: local('Pretendard Variable'), url('fonts/PretendardVariable.woff2') format('woff2-variations');
+  }
   /* 항상 밝은 화이트 테마로 고정 — 다크모드에서도 흰 바탕 유지 */
   :root, :root[data-theme="light"], :root[data-theme="dark"] {
     --deep: #0A1230;
@@ -521,11 +530,10 @@
   <div class="wrap">
     <div class="row">
       <div class="stat"><b><span class="cnt" data-to="19">0</span><em>년</em></b><span>기업지원 경력 (2007~)</span></div>
-      <div class="stat"><b><span class="cnt" data-to="120">0</span><em>+</em></b><span>교육지원 기업</span></div>
-      <div class="stat"><b><span class="cnt" data-to="40">0</span><em>+</em></b><span>AI 기업진단 수행</span></div>
-      <div class="stat"><b><span class="cnt" data-to="1500">0</span><em>+</em></b><span>교육 수료 인원</span></div>
+      <div class="stat"><b><span class="cnt" data-to="37">0</span><em>개사</em></b><span>교육지원 기업</span></div>
+      <div class="stat"><b><span class="cnt" data-to="68">0</span><em>건</em></b><span>AI 기업진단 수행</span></div>
+      <div class="stat"><b><span class="cnt" data-to="345">0</span><em>명</em></b><span>교육 수료 인원</span></div>
     </div>
-    <div class="note">※ 수치 업데이트 중</div><!-- 실제 실적 수치 교체 시 이 각주도 함께 제거할 것 -->
   </div>
 </div>
 

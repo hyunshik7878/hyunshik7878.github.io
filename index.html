@@ -979,7 +979,7 @@
   var API = 'https://script.google.com/macros/s/AKfycbxTZWjMYJfiV1fNmzfw6Ce2n3bb5CMux6AOx3Fc4agdXkq-CRneSaWDhDLVu_-QVgjJ/exec';
 
   /* 신청 현황 불러오기 */
-  var MIN_PROOF_COUNT = 10; /* 누적 10건 미만이면 숫자 대신 행동 유도 카피 (0건 역효과 차단) */
+  var MIN_PROOF_COUNT = 1; /* 1건부터 즉시 표시 (0건일 때만 행동 유도 카피) */
   fetch(API).then(function (r) { return r.json(); }).then(function (d) {
     if (!d.ok) throw new Error(d.error);
     var cnt = document.getElementById('applyCount');

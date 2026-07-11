@@ -314,40 +314,6 @@
     border: 1px solid transparent; border-radius: 999px; padding: 5px 13px; margin-bottom: 14px;
     background: linear-gradient(var(--card), var(--card)) padding-box, var(--spectrum) border-box;
   }
-  .diag-banner {
-    margin-top: 48px; display: flex; align-items: center; justify-content: space-between; gap: 26px;
-    background:
-      radial-gradient(120% 220% at 88% -20%, rgba(79,216,235,.28), transparent 55%),
-      radial-gradient(90% 180% at 5% 120%, rgba(245,166,35,.18), transparent 55%),
-      linear-gradient(135deg, #16306E, #1E4396 55%, #2B57B8);
-    border-radius: 20px; padding: 36px 40px; color: #fff;
-    position: relative; overflow: hidden; flex-wrap: wrap;
-    box-shadow: 0 12px 36px rgba(30,67,150,.28);
-    transition: transform .25s ease, box-shadow .25s ease;
-  }
-  .diag-banner:hover { transform: translateY(-4px); box-shadow: 0 18px 48px rgba(30,67,150,.4); }
-  @media (prefers-reduced-motion: reduce) { .diag-banner:hover { transform: none; } }
-  .diag-banner .db-eyebrow {
-    font-family: "SF Mono", ui-monospace, Menlo, monospace;
-    font-size: 11.5px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
-    color: var(--cyan); margin-bottom: 10px;
-  }
-  .diag-banner h3 { margin: 0 0 8px; font-size: clamp(19px, 2.6vw, 24px); font-weight: 800; color: #fff; letter-spacing: -0.015em; }
-  .diag-banner p { margin: 0; font-size: 14px; color: rgba(234,240,255,.75); }
-  .diag-banner .db-count { flex: none; text-align: center; margin-left: auto; padding-right: 6px; }
-  .diag-banner .db-count b { display: block; font-size: 34px; font-weight: 800; color: #fff;
-    font-variant-numeric: tabular-nums; line-height: 1.15; letter-spacing: -0.01em; }
-  .diag-banner .db-count .db-count-l { font-size: 12px; color: rgba(234,240,255,.65); }
-  @media (max-width: 720px) { .diag-banner .db-count { margin-left: 0; text-align: left; } }
-  .diag-banner .db-btn {
-    flex: none; background: #fff; color: var(--blue); font-weight: 800; font-size: 15.5px;
-    padding: 15px 30px; border-radius: 11px; box-shadow: 0 6px 20px rgba(4,10,30,.25);
-  }
-  @media (max-width: 720px) {
-    .diag-banner { padding: 28px 24px; }
-    .diag-banner .db-btn { width: 100%; text-align: center; }
-  }
-
   .custom-strip {
     margin-top: 24px; display: flex; gap: 26px; align-items: center; justify-content: space-between;
     background: var(--card); border: 1px solid var(--line); border-radius: 18px;
@@ -528,6 +494,40 @@
     border-bottom: 1px solid var(--line);
   }
 
+  /* ═══ AI 진단 플로팅 위젯 (스크롤 따라다님) ═══ */
+  .diag-float {
+    position: fixed; right: 26px; bottom: 26px; z-index: 90;
+    width: 212px; display: block;
+    background:
+      radial-gradient(130% 130% at 85% -10%, rgba(79,216,235,.3), transparent 55%),
+      radial-gradient(100% 100% at 0% 110%, rgba(245,166,35,.2), transparent 55%),
+      linear-gradient(140deg, #16306E, #1E4396 60%, #2B57B8);
+    border-radius: 18px; padding: 20px 20px 18px; color: #fff;
+    box-shadow: 0 16px 44px rgba(10,18,48,.35);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .diag-float:hover { transform: translateY(-4px); box-shadow: 0 22px 54px rgba(10,18,48,.45); }
+  @media (prefers-reduced-motion: reduce) { .diag-float:hover { transform: none; } }
+  .diag-float .df-close {
+    position: absolute; top: 6px; right: 8px; background: none; border: none;
+    color: rgba(255,255,255,.55); font-size: 18px; line-height: 1; cursor: pointer; padding: 6px;
+  }
+  .diag-float .df-close:hover { color: #fff; }
+  .diag-float .df-eyebrow {
+    font-family: "SF Mono", ui-monospace, Menlo, monospace;
+    font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--cyan); margin-bottom: 8px;
+  }
+  .diag-float .df-title { font-size: 16.5px; font-weight: 800; line-height: 1.35; color: #fff; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .diag-float .df-count { font-size: 12px; color: rgba(234,240,255,.7); margin-bottom: 14px; }
+  .diag-float .df-count b { display: block; font-size: 28px; font-weight: 800; color: #fff;
+    font-variant-numeric: tabular-nums; line-height: 1.2; letter-spacing: -0.01em; }
+  .diag-float .df-btn {
+    display: block; text-align: center; background: #fff; color: var(--blue);
+    font-weight: 800; font-size: 13.5px; padding: 11px; border-radius: 9px;
+  }
+  @media (max-width: 900px) { .diag-float { display: none; } } /* 모바일은 하단 CTA와 충돌 방지 */
+
   /* ═══ 모바일 하단 고정 CTA ═══ */
   .mcta {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 95; display: none;
@@ -685,19 +685,6 @@
       <span class="fs-note"><b>진단을 먼저 받으면</b>, 결과에 따라 우리 회사에 맞는 교육으로 연계해 드립니다.</span>
     </div>
     <p class="free-note rv">모든 지원 비용은 무료이며, 장소·일정·범위는 협의 후 확정됩니다.</p>
-
-    <a class="diag-banner rv" href="ai-check.html">
-      <div class="db-txt">
-        <div class="db-eyebrow">Self Check</div>
-        <h3>나의 AI 활용 수준, 2분 만에 진단해 보세요</h3>
-        <p>11개 체크 · 무료 · 익명 — 초급~고급 수준과 나에게 맞는 교육을 바로 알려드립니다</p>
-      </div>
-      <div class="db-count" id="dbCount">
-        <b><span id="bannerDiagCount">0</span></b>
-        <span class="db-count-l">명 진단 완료</span>
-      </div>
-      <span class="db-btn">진단 시작 →</span>
-    </a>
   </div>
 </section>
 
@@ -945,6 +932,14 @@
   </div>
 </footer>
 
+<a class="diag-float" id="diagFloat" href="ai-check.html">
+  <button class="df-close" id="dfClose" aria-label="닫기" title="닫기">×</button>
+  <div class="df-eyebrow">Self Check</div>
+  <div class="df-title">나의 AI 활용 수준<br>2분 만에 진단</div>
+  <div class="df-count"><b id="bannerDiagCount">0</b>명 진단 완료</div>
+  <span class="df-btn">진단 시작 →</span>
+</a>
+
 <div class="mcta" id="mcta"><a href="#apply">무료 지원 신청 →</a></div>
 
 <script>
@@ -1121,6 +1116,15 @@
     mcta.classList.toggle('show', window.scrollY > 560 && !applyVisible);
   }
   window.addEventListener('scroll', updateMcta, { passive: true });
+
+  /* 진단 플로팅 위젯 닫기 (세션 동안 유지) */
+  var dfEl = document.getElementById('diagFloat');
+  try { if (sessionStorage.getItem('dfClosed')) dfEl.style.display = 'none'; } catch (err) {}
+  document.getElementById('dfClose').addEventListener('click', function (e) {
+    e.preventDefault(); e.stopPropagation();
+    dfEl.style.display = 'none';
+    try { sessionStorage.setItem('dfClosed', '1'); } catch (err) {}
+  });
 
   /* ?preview 파라미터로만 미리보기 리본 표시 */
   if (new URLSearchParams(location.search).has('preview')) {

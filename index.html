@@ -314,6 +314,35 @@
     border: 1px solid transparent; border-radius: 999px; padding: 5px 13px; margin-bottom: 14px;
     background: linear-gradient(var(--card), var(--card)) padding-box, var(--spectrum) border-box;
   }
+  .diag-banner {
+    margin-top: 48px; display: flex; align-items: center; justify-content: space-between; gap: 26px;
+    background:
+      radial-gradient(120% 220% at 88% -20%, rgba(79,216,235,.28), transparent 55%),
+      radial-gradient(90% 180% at 5% 120%, rgba(245,166,35,.18), transparent 55%),
+      linear-gradient(135deg, #16306E, #1E4396 55%, #2B57B8);
+    border-radius: 20px; padding: 36px 40px; color: #fff;
+    position: relative; overflow: hidden; flex-wrap: wrap;
+    box-shadow: 0 12px 36px rgba(30,67,150,.28);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .diag-banner:hover { transform: translateY(-4px); box-shadow: 0 18px 48px rgba(30,67,150,.4); }
+  @media (prefers-reduced-motion: reduce) { .diag-banner:hover { transform: none; } }
+  .diag-banner .db-eyebrow {
+    font-family: "SF Mono", ui-monospace, Menlo, monospace;
+    font-size: 11.5px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--cyan); margin-bottom: 10px;
+  }
+  .diag-banner h3 { margin: 0 0 8px; font-size: clamp(19px, 2.6vw, 24px); font-weight: 800; color: #fff; letter-spacing: -0.015em; }
+  .diag-banner p { margin: 0; font-size: 14px; color: rgba(234,240,255,.75); }
+  .diag-banner .db-btn {
+    flex: none; background: #fff; color: var(--blue); font-weight: 800; font-size: 15.5px;
+    padding: 15px 30px; border-radius: 11px; box-shadow: 0 6px 20px rgba(4,10,30,.25);
+  }
+  @media (max-width: 720px) {
+    .diag-banner { padding: 28px 24px; }
+    .diag-banner .db-btn { width: 100%; text-align: center; }
+  }
+
   .custom-strip {
     margin-top: 24px; display: flex; gap: 26px; align-items: center; justify-content: space-between;
     background: var(--card); border: 1px solid var(--line); border-radius: 18px;
@@ -651,6 +680,15 @@
       <span class="fs-note"><b>진단을 먼저 받으면</b>, 결과에 따라 우리 회사에 맞는 교육으로 연계해 드립니다.</span>
     </div>
     <p class="free-note rv">모든 지원 비용은 무료이며, 장소·일정·범위는 협의 후 확정됩니다.</p>
+
+    <a class="diag-banner rv" href="ai-check.html">
+      <div class="db-txt">
+        <div class="db-eyebrow">Self Check</div>
+        <h3>나의 AI 활용 수준, 2분 만에 진단해 보세요</h3>
+        <p>11개 체크 · 무료 · 익명 — 초급~고급 수준과 나에게 맞는 교육을 바로 알려드립니다</p>
+      </div>
+      <span class="db-btn">진단 시작 →</span>
+    </a>
   </div>
 </section>
 

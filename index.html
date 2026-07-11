@@ -334,13 +334,23 @@
   }
   .diag-banner h3 { margin: 0 0 8px; font-size: clamp(19px, 2.6vw, 24px); font-weight: 800; color: #fff; letter-spacing: -0.015em; }
   .diag-banner p { margin: 0; font-size: 14px; color: rgba(234,240,255,.75); }
+  .diag-banner .db-count { flex: none; text-align: center; margin-left: auto; padding-right: 6px; }
+  .diag-banner .db-count b { display: block; font-size: 34px; font-weight: 800; color: #fff;
+    font-variant-numeric: tabular-nums; line-height: 1.15; letter-spacing: -0.01em; }
+  .diag-banner .db-count .db-count-l { font-size: 12px; color: rgba(234,240,255,.65); }
+  @media (max-width: 720px) { .diag-banner .db-count { margin-left: 0; text-align: left; } }
   .diag-banner .db-btn {
     flex: none; background: #fff; color: var(--blue); font-weight: 800; font-size: 15.5px;
     padding: 15px 30px; border-radius: 11px; box-shadow: 0 6px 20px rgba(4,10,30,.25);
   }
   @media (max-width: 720px) {
     .diag-banner { padding: 28px 24px; }
-    .diag-banner .db-btn { width: 100%; text-align: center; }
+    .diag-banner .db-count { flex: none; text-align: center; margin-left: auto; padding-right: 6px; }
+  .diag-banner .db-count b { display: block; font-size: 34px; font-weight: 800; color: #fff;
+    font-variant-numeric: tabular-nums; line-height: 1.15; letter-spacing: -0.01em; }
+  .diag-banner .db-count .db-count-l { font-size: 12px; color: rgba(234,240,255,.65); }
+  @media (max-width: 720px) { .diag-banner .db-count { margin-left: 0; text-align: left; } }
+  .diag-banner .db-btn { width: 100%; text-align: center; }
   }
 
   .custom-strip {
@@ -687,6 +697,10 @@
         <h3>나의 AI 활용 수준, 2분 만에 진단해 보세요</h3>
         <p>11개 체크 · 무료 · 익명 — 초급~고급 수준과 나에게 맞는 교육을 바로 알려드립니다</p>
       </div>
+      <div class="db-count" id="dbCount">
+        <b><span id="bannerDiagCount">0</span></b>
+        <span class="db-count-l">명 진단 완료</span>
+      </div>
       <span class="db-btn">진단 시작 →</span>
     </a>
   </div>
@@ -1029,6 +1043,11 @@
       cio.observe(cnt);
     } else {
       cnt.parentNode.innerHTML = '<span style="font-size:24px; font-weight:800; line-height:1.5; color:var(--blue);">현재 신청 접수 중입니다</span>';
+    }
+    var bdc = document.getElementById('bannerDiagCount');
+    if (bdc) {
+      bdc.setAttribute('data-to', d.diagCount || 0);
+      cio.observe(bdc);
     }
     var list = document.getElementById('feedList');
     list.innerHTML = '';

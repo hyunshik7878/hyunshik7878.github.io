@@ -227,7 +227,10 @@
     background: linear-gradient(160deg, var(--blue-soft), var(--soft));
     display: flex; align-items: center; justify-content: center;
     color: var(--faint); font-size: 14px; border: 1px solid var(--line);
+    overflow: hidden;
   }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center top; }
   .about-body p { margin: 0 0 20px; max-width: 39em; }
   .about-body p strong { color: var(--blue); font-weight: 700; }
   .quote {
@@ -720,7 +723,7 @@
     </div>
     <div class="about-grid">
       <div class="photo-frame rv">
-        <div class="photo">프로필 사진<br>(제공 예정)</div>
+        <div class="photo"><img src="photo.jpg" alt="신현식 프로필 사진" loading="lazy"></div>
       </div>
       <div class="about-body rv">
         <p>한국광기술원 기업성장지원센터 인력양성팀장 <strong>신현식</strong>입니다.</p>

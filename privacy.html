@@ -2,6 +2,9 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; form-action 'self' https://script.google.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>개인정보처리방침 — 신현식 기업지원</title>
 <style>
@@ -23,6 +26,10 @@
   a { color: #1E4396; }
   .back { display: inline-block; margin-bottom: 32px; font-size: 14px; text-decoration: none; font-weight: 600; }
 </style>
+<script>
+/* 클릭재킹 방어: 다른 사이트 iframe 안에서 열리면 최상위로 탈출 */
+if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.documentElement.style.display = 'none'; } }
+</script>
 </head>
 <body>
 <div class="wrap">

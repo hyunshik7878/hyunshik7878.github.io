@@ -243,7 +243,24 @@
   }
   .quote::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
     background: var(--spectrum); }
-  .creds { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 30px; }
+  .lead-card { margin-top: 30px; border: 1px solid var(--line); border-radius: 16px;
+    background: linear-gradient(160deg, var(--amber-soft) 0%, var(--card) 55%);
+    box-shadow: var(--shadow); overflow: hidden; }
+  .lead-head { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 20px 24px 16px; border-bottom: 1px solid var(--line); }
+  .lead-role { font-size: 16.5px; font-weight: 800; color: var(--navy, #14295C); letter-spacing: -0.01em; }
+  .lead-period { font-size: 12.5px; font-weight: 600; color: var(--muted); margin-top: 2px; }
+  .lead-stat { flex: none; text-align: right; line-height: 1.15; }
+  .lead-stat b { font-size: 30px; font-weight: 900; color: #C77E08; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .lead-stat span { display: block; font-size: 10.5px; color: var(--muted); font-weight: 600; margin-top: 2px; }
+  .lead-list { margin: 0; padding: 16px 24px 20px; list-style: none; display: grid; gap: 10px; }
+  .lead-list li { font-size: 14px; color: var(--ink); display: flex; align-items: baseline; gap: 9px; }
+  .lead-list li b { color: var(--blue); font-weight: 800; }
+  .lead-list li small { color: var(--faint); font-size: 12.5px; }
+  .lead-list .ico { flex: none; font-size: 14px; }
+  @media (max-width: 480px) { .lead-head { flex-direction: column; align-items: flex-start; } .lead-stat { text-align: left; } }
+
+  .creds { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
   .cred { font-size: 13.5px; font-weight: 600;
     background: var(--blue-soft); color: var(--blue); border-radius: 8px; padding: 8px 14px; }
   .kopti-box {
@@ -737,6 +754,23 @@ if (window.top !== window.self) { try { window.top.location = window.self.locati
         <p><strong>2007년부터</strong> 중소기업의 성장과 인재 양성 현장에서 기업 진단, 맞춤형 교육 설계, AI 도입 지원을 이어왔습니다. 경영학 박사이자 AI 전문코치로서, <strong>각 기업에 꼭 맞는 실질적인 해법</strong>에 집중합니다.</p>
         <div class="quote">사람도 기업도 멈추면 뒤처지고,<br>배우면 성장합니다.</div>
         <p>역량을 나누는 과정은 저에게도 배움입니다. <strong>기업과 전문가가 함께 성장하는 선순환</strong> — 그것이 이 일을 계속하는 이유입니다.</p>
+
+        <div class="lead-card">
+          <div class="lead-head">
+            <div>
+              <div class="lead-role">국가인적자원개발컨소시엄 사업책임자</div>
+              <div class="lead-period">2020년 ~ 현재</div>
+            </div>
+            <div class="lead-stat"><b>1,000</b><span>명 / 매년<br>교육생 배출</span></div>
+          </div>
+          <ul class="lead-list">
+            <li><span class="ico">🏆</span>최우수공동훈련센터 <b>선정 4회</b></li>
+            <li><span class="ico">🎖️</span>우수전담자 <b>대상</b> 수상 <small>(2022, 고용노동부장관상)</small></li>
+            <li><span class="ico">🎖️</span>우수전담자 <b>최우수상</b> 수상 <small>(2026, 고용노동부장관상)</small></li>
+            <li><span class="ico">📌</span>자율공동훈련센터 <b>지정</b>(2023) · <b>재지정</b>(2026)</li>
+          </ul>
+        </div>
+
         <div class="creds">
           <span class="cred">기업성장지원센터 인력양성팀장</span>
           <span class="cred">경영학 박사</span>

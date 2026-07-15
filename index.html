@@ -6,6 +6,9 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="description" content="광주·전남 중소기업을 위한 무료 기업교육 · AI 기업진단 · 소그룹 실습형 AI교육. 한국광기술원 재직 전문가가 상담부터 진행까지 무료로 안내합니다.">
 <meta property="og:title" content="광주·전남 중소기업 무료 AI진단·기업교육 | 신현식 KOPTI 기업지원">
 <meta property="og:description" content="기업교육 · AI 기업진단 · 소그룹 실습형 AI교육을 상담부터 진행까지 무료로 안내합니다.">
@@ -51,7 +54,7 @@
     --spectrum: linear-gradient(90deg, #1E4396 0%, #3D6FE0 30%, #4FD8EB 65%, #F5A623 100%);
     --logo-filter-light: none;
     --logo-filter-dark: brightness(0) invert(1) opacity(.92);
-    color-scheme: light;
+    color-scheme: light only;
   }
 
   * { box-sizing: border-box; }
@@ -591,11 +594,13 @@
     backdrop-filter: blur(14px); border-top: 1px solid var(--line);
   }
   .mcta::before { content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 2px; background: var(--spectrum); }
-  .mcta a {
-    display: block; text-align: center; font-weight: 700; font-size: 15.5px;
-    background: linear-gradient(135deg, #3D6FE0, #1E4396); color: #fff;
-    padding: 13px; border-radius: 10px; box-shadow: 0 4px 18px rgba(30,67,150,.25);
-  }
+  .mcta .mcta-row { display: flex; gap: 8px; }
+  .mcta a { display: block; text-align: center; font-weight: 800; font-size: 15px;
+    padding: 13px 10px; border-radius: 10px; }
+  .mcta a.m-apply { flex: 1.4; background: linear-gradient(135deg, #3D6FE0, #1E4396); color: #fff;
+    box-shadow: 0 4px 18px rgba(30,67,150,.25); }
+  .mcta a.m-diag { flex: 1; background: var(--card); color: var(--blue);
+    border: 1.5px solid color-mix(in srgb, var(--blue) 30%, var(--line)); }
   @media (max-width: 900px) { .mcta.show { display: block; } }
 </style>
 <script>
@@ -1020,7 +1025,10 @@ if (window.top !== window.self) { try { window.top.location = window.self.locati
   <span class="df-btn">내 수준 확인하기 →</span>
 </a>
 
-<div class="mcta" id="mcta"><a href="#apply">무료 지원 신청 →</a></div>
+<div class="mcta" id="mcta"><div class="mcta-row">
+  <a class="m-diag" href="ai-check.html">AI 수준진단</a>
+  <a class="m-apply" href="#apply">무료 지원 신청 →</a>
+</div></div>
 
 <script>
 (function () {
